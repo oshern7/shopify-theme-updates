@@ -1,0 +1,66 @@
+{%- assign enableSection = section.settings.related_products_enable -%}
+{%- assign limit = section.settings.limit -%}
+{%- assign heading = section.settings.product_recommendations_heading -%}
+{%- assign productsColumns = settings.products_columns | plus: 0 -%}
+{%- assign columnsSize = productsColumns | replace: '1', '' -%}
+
+<section class="related-products container-wrap collectionGrid js-collectionGrid {% unless enableSection %}visually-hidden{% endunless%}" 
+  data-section-type="related-products"
+  data-section-id="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-limit="{{ section.settings.limit }}">
+  
+  {%- if enableSection -%}
+    {%- if recommendations.performed -%}
+      {%- if recommendations.products_count > 0 -%}
+
+        <div class="carousel container">
+          <div class="row row-sm carousel-title">
+            {%- if heading != blank -%}
+              <h2>{{ heading }}</h2>
+            {%- endif -%}
+          </div>
+       
+          <div class="collectionGrid-row row row-lg inline row--products-{{ recommendations.products_count }}">
+            {%- for product in recommendations.products -%}
+              {%- include 'collectionGrid-block' -%}
+            {%- endfor -%}
+          </div>
+
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="related__placeholder"></div>
+    {%- endif -%}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Product recommendations",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "related_products_enable",
+      "label": "Show related products",
+      "info": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+      "default": true
+    },
+    {
+      "type":    "range",
+      "id":      "limit",
+      "min":     1,
+      "max":     6,
+      "step":    1,
+      "label":   "Product limit",
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "product_recommendations_heading",
+      "label": "Heading",
+      "default": "Related products"
+    }
+  ]
+}
+{% endschema %}
