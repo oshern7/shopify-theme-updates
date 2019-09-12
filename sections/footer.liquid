@@ -34,7 +34,7 @@
                   </div>
 
                   {%- when 'menu' -%}
-                    <div class="footer__block footer__menus block  {{ column }} {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }}>
+                    <div class="footer__block footer__menus block footer--center {% if mobile_hide_block %}med_hide{% endif %}" {{ block.shopify_attributes }}>
                       {%- if block.settings.menu_primary != blank -%}
                       <div class="footer__menu" >
                         <ul>
@@ -78,38 +78,13 @@
     {% comment %} Footer bottom - Text, copyright, payment icons {% endcomment %}
     {%- assign footer_text = section.settings.text -%}
     <div class="footer-bottom">
-      <div class="container">
-        <div class="row row-lg">
+      <div class="footer__text">
+        {{ footer_text }}
+      </div>
 
-          {%- if footer_text != blank -%}
-            <div class="block s1 lg_s14">
-              <div class="footer__text">
-                {{ footer_text }}
-              </div>
-            </div>
-          {%- endif -%}
-
-          <div class="block s1 lg_s12 {% if footer_text == blank %}lg_p14{% endif %}">
-            <div class="footer__copyright u-center">
-              <p>{{ powered_by_link }}</p>
-            </div>
-
-            {%- if section.settings.show_payment_icons -%}
-              <div class="footer__payment">
-                {%- include 'payment-icons' -%}
-              </div>
-            {%- endif -%}
-          </div>
-
-          {%- if settings.show_multiple_currencies -%}
-            <div class="block s1 lg_s14 {% if footer_text == blank %}lg_p14{% endif %}">
-              <div class="footer__currency">
-                {%- include 'currency-picker' -%}
-              </div>
-            </div>
-          {%- endif -%}
-
-        </div>
+      <div class="footer__policy-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
       </div>
     </div>
   </footer>

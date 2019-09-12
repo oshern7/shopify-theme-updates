@@ -5207,6 +5207,15 @@ hr {
 	@media screen and (max-width: ($med - 1)) {
 		margin: 30px 0;
 	}
+
+  .contact-form input[type="email"] {
+    padding-left: 2px;
+  }
+
+  input::placeholder {
+    font-family: Trade-Gothic-LT-Oblique;
+    font-size: 14px;
+  }
 }
 .signUp {
 	/**
@@ -6202,7 +6211,7 @@ div.mce_inline_error {
 
   	.cart-discounts {text-align: left;}
 
-  	.js-continueShopping { 
+  	.js-continueShopping {
   		margin-bottom: 8px;
 
   		@media screen and (max-width: ($med - 1)) and (min-width: $sm) {
@@ -6212,7 +6221,7 @@ div.mce_inline_error {
   		@media screen and (max-width: ($sm - 1)) {
 			margin-bottom: 0;
 	  	}
-  	} 
+  	}
 
 	&.row {
 		&::after {
@@ -6252,7 +6261,7 @@ div.mce_inline_error {
 			}
 		}
 	}
-	
+
 	.shopify-cleanslate > div > div > div > div,
 	.shopify-cleanslate > div > div > div > div:only-child {
 		@media (min-width: 750px) {
@@ -7120,7 +7129,7 @@ div.mce_inline_error {
 	float: right;
 	position: relative;
 	z-index: 2;
-    top: 34px;
+    top: 38px;
     right: 40px;
     margin-right: 20px;
     width: 30px;
@@ -12432,32 +12441,6 @@ https://flickity.metafizzy.co
 			}
 		}
 	}
-
-	@media screen and (min-width: $med) {
-		.footer__block {
-			width: 25%;
-		}
-
-		.footer__menus {
-			width: 50%;
-		}
-	}
-
-	@media screen and (min-width: ($lg + 1)) {
-		.footer__block {
-			width: 15%;
-		}
-
-		.footer__menus {
-			width: 70%;
-		}
-	}
-
-	@media screen and (max-width: ($med - 1)) {
-		.block {
-			text-align: center;
-		}
-	}
 }
 
 .footer-bottom {
@@ -12467,6 +12450,7 @@ https://flickity.metafizzy.co
 	font-family: $button_font;
 	font-weight: $button_font_weight;
 	font-style: $button_font_style;
+  position: relative;
 
 	p,
 	.p {
@@ -12476,27 +12460,29 @@ https://flickity.metafizzy.co
 		font-style: inherit;
 	}
 
-	@media screen and (max-width: $med) {
-		padding: 20px 0;
+  @media screen and (min-width: $med) {
+    .footer__text,
+    .footer__policy-links {
+      text-align: center;
+    }
+  }
+
+	@media screen and (max-width: $lg) and (min-width: ($med + 1)) {
+		padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
 	}
 
-	.footer__text,
-	.footer__payment {
-		text-align: center;
-	}
-
-	.footer__text {
-		@media screen and (min-width: ($lg + 1)) {
-			text-align: left;
-		}
-	}
-	.footer__copyright {
-		font-size: 10px;
-
-		a {
-			text-decoration: none;
-		}
-	}
+  @media screen and (min-width: ($lg + 1)) {
+    .footer__text {
+      text-align: center;
+    }
+    .footer__policy-links {
+      position: absolute;
+      top: 28px;
+      right: 24px;
+    }
+  }
 }
 
 .footer__social {
@@ -12623,6 +12609,7 @@ https://flickity.metafizzy.co
 	width: 100vw;
 	z-index: 1000;
 	opacity: 0;
+  overflow: hidden;
 
 	&.template-index {
 		color: $c-header-text-home;
@@ -13412,7 +13399,7 @@ https://flickity.metafizzy.co
 				top: 5px;
 			}
 			.nav-account-link {
-				top: 14px;
+				top: 17px;
 
 				path {
 					fill: $c-header-text-scroll;
@@ -13508,10 +13495,9 @@ https://flickity.metafizzy.co
 .cartToggle {
 	@include transition( unquote('background .2s ease, right .3s, top .2s') );
 	color: $c-text;
-	display: block;
+	display: flex;
 	float: right;
 	height: 30px;
-	width: 30px;
 	margin-right: 0;
 	margin-top: 0;
 	top: 38px;
@@ -16574,11 +16560,16 @@ FONTS
 
 @font-face {
     font-family: Banto-extralight ;
-    src: url(./Banto-ExtraLight.otf);   
+    src: url(./Banto-ExtraLight.otf);
 }
 
 @font-face {
     font-family: Trade-Gothic;
+    src: url(./TradeGothicMedium.otf);
+}
+
+@font-face {
+    font-family: Trade-Gothic-LT;
     src: url(./TradeGothicLTStd.otf);
 }
 
@@ -16593,7 +16584,10 @@ FONTS
     src: url(./TradeGothicLTStd-BdCn20.otf);
 }
 
-
+@font-face {
+    font-family: Trade-Gothic-LT-Oblique;
+    src: url(./TradeGothicLTStd-Obl.otf);
+}
 
 
 
@@ -16766,7 +16760,7 @@ button.signUp-submit, .signUp-submit.btn,
 
 /*********
 
-nav noise 
+nav noise
 
 *********/
 
@@ -16789,6 +16783,10 @@ nav noise
     letter-spacing: 1px;
     text-transform: uppercase;
   width: auto;
+
+  @media screen and (max-width: $sm) {
+  	display: none;
+  }
 }
 
 
@@ -16825,7 +16823,7 @@ label {
 .comment-form input[type="tel"],
 .contact-form textarea,
 .comment-form textarea,
-.contact-form select, 
+.contact-form select,
 .comment-form select {
     font-family: Trade-Gothic-bold-2;
 	border-color: rgba(0, 78, 89, 0.35);
@@ -16836,22 +16834,22 @@ label {
 
 
 #contactFormWrapper {
-  
+
   .form-field {
       float: left;
       width: 100%;
   }
-  
+
   .form-field:first-child,
   .form-field:nth-child(2) {
       width: 48%;
       float: left;
   }
-  
+
   .form-field:first-child {
   	margin-right: 2%;
   }
-  
+
   .form-field:nth-child(2) {
   	margin-left: 2%;
   }
@@ -16912,9 +16910,153 @@ PDP
     color: #DCC7B7 !important;
   	transition: all 300ms cubic-bezier(0.1, 0.79, 1, 1);
   	border-width: 1px;
-  
+
   &:hover {
   	background-color: #fff !important;
     color: #004E59 !important;
+  }
+}
+
+
+/**********
+
+About Us
+
+**********/
+.template-page-about {
+  background-color: $c-primary;
+  color: $c-background;
+
+  .site-header {
+    color: $c-header-bg-scroll;
+    background-color: $c-header-text-scroll;
+
+    .menuToggle {
+      .diamond-bar {
+        background-color: $c-header-text-scroll;
+      }
+      .icon-bar,
+      .icon-bar:before,
+      .icon-bar:after {
+        background-color: $c-header-bg-scroll;
+      }
+    }
+
+    &.is-standard,
+    &.is-hamburger.has-scrolled {
+      color: $c-header-bg-scroll;
+      background-color: $c-header-text-scroll;
+
+      .nav-standard,
+      #cartTotal .cartToggle-items {
+        color: $c-header-bg-scroll;
+      }
+
+      #cartTotal path {
+        fill: $c-header-bg-scroll;
+      }
+    }
+
+    .cartToggle {
+      color: $c-header-bg-scroll;
+
+      .cartToggle-items {
+        color: $c-header-bg-scroll;
+      }
+    }
+    #cartTotal path {
+      fill: $c-header-bg-scroll;
+    }
+  }
+
+  .nav-inner h4, .nav-inner i, .nav-inner a,
+  .nav-container .nav-inner .nav-social .nav-social-link::before, .nav-container .nav-inner .nav-search .h4 {
+    color: $c-header-bg-scroll;
+  }
+
+  .banner--collections {
+    margin-top: -20px;
+  }
+  .content-about {
+    max-width: 750px;
+
+    h3 {
+      font-family: Trade-Gothic-bold-2;
+      font-size: 32px;
+      margin-top: 20px;
+      margin-bottom: 80px;
+      text-align: center;
+      color: $c-background;
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font-family: "rama-slab-e";
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: $c-background;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-family: Trade-Gothic;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    img {
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    blockquote {
+      padding-left: 24px;
+      border-left: 1px solid $c-background;
+      margin: 0 10px 70px 40px;
+    }
+  }
+
+  .section-newsletter {
+    color: $c-background;
+
+    h1 {
+      color: $c-background !important;
+    }
+
+    button.signUp-submit {
+      color: $c-background !important;
+    }
+
+    .signUp-form .inputGroup {
+      border-color: $c-background;
+    }
+
+    input {
+      color: $c-background !important;
+    }
+
+    input::placeholder {
+      color: $c-background;
+    }
+  }
+
+  .site-footer {
+    color: $c-background;
+
+    .footer-blocks .footer-link a {
+      color: $c-background;
+    }
+  }
+}
+
+.bg_footer_pattern {
+  .section-newsletter .container.signUp {
+    width: 308px;
+
+    .signUp-form {
+      width: 261px;
+    }
   }
 }

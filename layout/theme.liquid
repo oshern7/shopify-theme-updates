@@ -12,7 +12,7 @@
   {% if settings.favicon != blank %}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {% endif %}
-  
+
   {% if page_description %}
     <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
@@ -46,7 +46,7 @@
     {% include 'yotpo-script' %}
   {% endif %}
 </head>
-{% capture body_class %}{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} image-hover-light cta-fill-{{settings.cta_button_style}} {% if settings.show_custom_cursor %}custom-cursor{% endif %} {% if settings.transition_images_fade %}enable-fade-in{% endif %} {% if settings.transition_grid_items %}show-grid-items-transition{% endif %}{% endcapture %}
+{% capture body_class %}{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} template-{{ template | replace: '.', ' ' | handle }} image-hover-light cta-fill-{{settings.cta_button_style}} {% if settings.show_custom_cursor %}custom-cursor{% endif %} {% if settings.transition_images_fade %}enable-fade-in{% endif %} {% if settings.transition_grid_items %}show-grid-items-transition{% endif %}{% endcapture %}
 
 <body id="{{ page_title | handle }}" class="{{ body_class }}" >
 
