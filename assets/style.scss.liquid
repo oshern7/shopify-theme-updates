@@ -7979,22 +7979,6 @@ button.slick-prev {
 		width: 100%;
 	}
 }
-.content-about {
-	margin: 40px auto 45px;
-	max-width: 75%;
-	@media (min-width: $med) {
-		margin: 60px auto 75px;
-	}
-	 @media (max-width: ($med - 1)) {
-		margin: 60px auto 75px;
-		max-width: 100%;
-	}
-
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-}
 /**
  * Two-up text module.
  */
@@ -13245,6 +13229,15 @@ https://flickity.metafizzy.co
 		}
 	}
 
+  &:not(.has-scrolled) {
+    .main-logo__image {
+      @media screen and (max-width: ($med - 1)) {
+        width: 60px;
+        margin-top: -20px;
+      }
+    }
+  }
+
 	.container {
 		@media screen and (min-width: $med) {
 			max-width: 100%;
@@ -13477,6 +13470,10 @@ https://flickity.metafizzy.co
 			background-color: $c-header-icon-bg-scroll;
 		}
 	}
+
+  @media (max-width: ($sm - 1)) {
+    top: 23px;
+  }
 }
 
 .icon-menu .icon-bar,
@@ -13504,6 +13501,11 @@ https://flickity.metafizzy.co
 	right: 40px;
 	position: relative;
 	z-index: 2;
+
+  @media (max-width: ($sm - 1)) {
+    top: 32px;
+  }
+
 	/**
 	 * Show "CART" text.
 	 */
@@ -16974,50 +16976,6 @@ About Us
     color: $c-header-bg-scroll;
   }
 
-  .banner--collections {
-    margin-top: -20px;
-  }
-  .content-about {
-    max-width: 750px;
-
-    h3 {
-      font-family: Trade-Gothic-bold-2;
-      font-size: 32px;
-      margin-top: 20px;
-      margin-bottom: 80px;
-      text-align: center;
-      color: $c-background;
-      text-transform: uppercase;
-    }
-
-    h4 {
-      font-family: "rama-slab-e";
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: $c-background;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    p {
-      font-family: Trade-Gothic;
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-
-    img {
-      width: 100%;
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
-
-    blockquote {
-      padding-left: 24px;
-      border-left: 1px solid $c-background;
-      margin: 0 10px 70px 40px;
-    }
-  }
-
   .section-newsletter {
     color: $c-background;
 
@@ -17047,6 +17005,211 @@ About Us
 
     .footer-blocks .footer-link a {
       color: $c-background;
+    }
+  }
+}
+
+.template-page-about,
+.template-page-visit {
+  .banner--collections {
+    margin-top: -20px;
+  }
+  .page-content {
+    max-width: 750px;
+  	margin: 40px auto 45px;
+  	@media (min-width: $med) {
+  		margin: 60px auto 75px;
+  	}
+	  @media (max-width: ($med - 1)) {
+  		margin: 60px auto 75px;
+  		max-width: 100%;
+  	}
+
+    h1 {
+      font-family: Banto-Bold;
+      font-size: 40px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-family: Trade-Gothic-bold-2;
+      font-size: 32px;
+      margin-top: 20px;
+      margin-bottom: 80px;
+      text-align: center;
+      color: $c-background;
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font-family: "rama-slab-e";
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: $c-background;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-family: Trade-Gothic;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    blockquote {
+      padding-left: 24px;
+      border-left: 1px solid $c-background;
+      margin: 0 10px 70px 40px;
+    }
+  }
+}
+
+.template-page-visit {
+  .page-content {
+    margin: 90px auto 60px;
+
+    @media screen and (max-width: $lg) {
+      margin: 10px auto;
+    }
+  }
+}
+
+.visit-map {
+  display: flex;
+  align-items: center;
+  max-width: 1381px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 80px 120px;
+  border-bottom: 1px solid #004e5980;
+
+  h4 {
+    font-family: "rama-slab-e";
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: $c-primary;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .map-info {
+    margin-right: 100px;
+    margin-bottom: 24px;
+    flex: none;
+    width: 240px;
+  }
+
+  .address {
+    font-family: Trade-Gothic;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-top: 24px;
+  }
+
+  .open-time {
+    margin-top: 24px;
+
+    > div {
+      margin-bottom: 8px;
+    }
+    span {
+      display: inline-block;
+    }
+    .day {
+      width: 100px;
+    }
+  }
+
+  .direction {
+    font-family: Trade-Gothic-bold-2;
+    font-size: 14px;
+    color: $c-primary;
+    text-transform: uppercase;
+
+    .icon-arrow-right {
+      display: inline-block;
+      margin-top: -8px;
+
+      &::before {
+        font-family: 'icomoon';
+        content: '\e905';
+        font-size: 8px;
+      }
+    }
+  }
+
+
+  .map-wrapper {
+    flex: 1;
+    width: 100%;
+
+    #map {
+      width: 100%;
+      height: 519px;
+    }
+  }
+
+  @media screen and (max-width: $lg) {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 40px;
+    width: calc(100% - 80px);
+
+    .map-info {
+      margin-right: 0;
+      margin-bottom: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      > div {
+        max-width: 240px;
+      }
+
+      .direction {
+        margin-top: 20px;
+      }
+
+      #map {
+        height: 399px;
+      }
+    }
+  }
+
+  @media screen and (max-width: $med - 1) {
+    padding: 0 0 80px;
+
+    .map-info {
+      flex-direction: column;
+
+      > div {
+        max-width: none;
+      }
+
+      h4 {
+        text-align: center;
+      }
+    }
+
+    .map-wrapper {
+      margin-left: -80px;
+      width: calc(100% + 160px);
+
+      #map {
+        height: 217px;
+      }
     }
   }
 }

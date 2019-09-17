@@ -40,7 +40,7 @@
               {% assign image_widths = '295,394,590,700,800,1000,1200,1500,1800,2000,2400' %}
               {% include 'theme-rias' %}
               <img class="banner-img--original lazyload fade-in"
-                   data-src="{{ image_url_pattern }}" 
+                   data-src="{{ image_url_pattern }}"
                    data-widths="[{{ image_widths }}]"
                    data-aspectratio="{{ image.aspect_ratio }}"
                    data-sizes="auto"
@@ -49,7 +49,7 @@
                 <img src="{{ image | img_url: '2048x' }}" alt="{{ image.alt | escape }}" class="banner-img--original no-js-image">
               </noscript>
             {% endunless %}
-            
+
             {% unless heading == blank and subheading == blank and text == blank %}
               <div class="page-title">
                 <div class="container">
@@ -69,7 +69,7 @@
                 </div>
               </div>
             {% endunless %}
-          </div>  
+          </div>
         </section>
 
       {% when 'rich-text' %}
@@ -97,10 +97,10 @@
             #text-module-{{ id }} .accent-line--curved svg path { fill: {{ accent_line_color }}; }
           </style>
           {%- endif -%}
-          
+
           {% include 'rich-text' %}
         </div>
-      
+
       {% when 'product-feature' %}
         {% assign heading = block.settings.title %}
         {% assign heading_size = block.settings.heading_font_size %}
@@ -112,7 +112,7 @@
         {% assign button_link = block.settings.button_link %}
         {% assign blocks_alignment = block.settings.blocks_alignment %}
         {% assign is_block_odd = block.settings.reverse_layout %}
-        
+
         <div class="product-features--container pad-sm" {{ block.shopify_attributes }}>
           <div class="container">
             <div class="row row-lg">
@@ -124,10 +124,10 @@
       {% endcase %}
     {% endfor %}
   {% endif %}
-  
+
   {%-if page.content != blank -%}
     <div class="container-wrap">
-      <div class="container content-about text-content row row-lg">
+      <div class="container page-content row row-lg">
         <p class="row row-sm rte">
           {{ page.content }}
         </p>

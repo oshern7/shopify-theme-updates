@@ -23,7 +23,7 @@
 
 <style>
   .main-logo__image { width: {{ logo_width }}; }
-  
+
   @media screen and (min-width: 768px) {
   	.site-header:not(.has-scrolled) .main-logo__image { width: {{ logo_width }}; }
   	.main-logo__image { max-width: {{ logo_width }}; }
@@ -59,32 +59,27 @@
 					{% endif %}
 				</div>
 			</div>
-			
+
 			{%- if logo or logo_other or show_shop_name -%}
 				<h1 class="visible-nav-link nav-item main-logo {% unless logo or logo_other %}main-logo--text-only{% endunless %}" itemscope itemtype="http://schema.org/Organization">
 					{%- if logo or logo_other -%}
 						<a tabindex= "1" href="/" class="main-logo__image" data-width="{{ section.settings.logo_max_width }}">
-							{%- if template == 'index' or template == 'collection' -%}
+							{%- if template == 'page.about' -%}
 								{% comment %} Show home logo first if home page {% endcomment %}
 
-								{%- if logo -%}
-									<img src="{{ logo | img_url: '500x' }}" class="logo logo-home" data-aspectratio="{{ logo.aspect_ratio }}" alt="{{ logo.alt | escape }}">
-									
-									{%- if logo_other -%}
-										<img src="{{ logo_other | img_url: '500x' }}" class="logo logo-other" data-aspectratio="{{ logo_other.aspect_ratio }}" alt="{{ logo_other.alt | escape }}">
-									{%- endif -%}
-								
-								{%- elsif logo_other -%}
-									<img src="{{ logo_other | img_url: '500x' }}" class="logo" data-aspectratio="{{ logo_other.aspect_ratio }}" alt="{{ logo_other.alt | escape }}">
-								{%- endif -%}
-							
-							{%- else -%}
-								{% comment %} Show other logo first if other than home page {% endcomment %}
-
-								{%- if logo_other -%}
+                {%- if logo_other -%}
 									<img src="{{ logo_other | img_url: '500x' }}" class="logo" data-aspectratio="{{ logo_other.aspect_ratio }}" alt="{{ logo_other.alt | escape }}">
 								{%- elsif logo -%}
 									<img src="{{ logo | img_url: '500x' }}" class="logo" data-aspectratio="{{ logo.aspect_ratio }}" alt="{{ logo.alt | escape }}">
+								{%- endif -%}
+
+							{%- else -%}
+								{% comment %} Show other logo first if other than home page {% endcomment %}
+
+                {%- if logo -%}
+									<img src="{{ logo | img_url: '500x' }}" class="logo" data-aspectratio="{{ logo.aspect_ratio }}" alt="{{ logo.alt | escape }}">
+								{%- elsif logo_other -%}
+									<img src="{{ logo_other | img_url: '500x' }}" class="logo" data-aspectratio="{{ logo_other.aspect_ratio }}" alt="{{ logo_other.alt | escape }}">
 								{%- endif -%}
 
 							{%- endif -%}
