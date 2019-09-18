@@ -13639,7 +13639,8 @@ https://flickity.metafizzy.co
 }
 
 .main-logo__image {
-	display: inline-block;
+	display: flex;
+  justify-content: center;
 	max-width: 100%;
 	max-height: 100%;
 	height: 100%;
@@ -17010,7 +17011,8 @@ About Us
 }
 
 .template-page-about,
-.template-page-visit {
+.template-page-visit,
+.template-page-wholesale {
   .banner--collections {
     margin-top: -20px;
   }
@@ -17038,7 +17040,6 @@ About Us
       margin-top: 20px;
       margin-bottom: 80px;
       text-align: center;
-      color: $c-background;
       text-transform: uppercase;
     }
 
@@ -17046,7 +17047,6 @@ About Us
       font-family: "rama-slab-e";
       font-size: 24px;
       margin-bottom: 15px;
-      color: $c-background;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -17220,6 +17220,183 @@ About Us
 
     .signUp-form {
       width: 261px;
+    }
+  }
+}
+
+.template-page-wholesale {
+  .features-block {
+    margin: 0 80px;
+  }
+  .features-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    margin: 0 auto;
+  }
+  .feature {
+    width: 209px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 80px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .feature-image {
+      display: block;
+      height: 36px;
+      margin-bottom: 8px;
+    }
+
+    .feature-title {
+      text-transform: uppercase;
+      font-family: "rama-slab-e";
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    .feature-text {
+      font-size: 14px;
+      margin: 0;
+      text-align: center;
+    }
+  }
+  section.bordered {
+    border-bottom: 1px solid #004e5980;
+  }
+
+  div[data-section-type="contact-template"] {
+    padding: 80px 0;
+    margin: 0 80px;
+    display: flex;
+    border-bottom: 1px solid #004e5980;
+
+    > .banner {
+      flex: 1;
+      margin: 0 40px 0 0;
+
+      .row {
+        margin: 0;
+        width: 100%;
+      }
+
+      .container,
+      .row,
+      .banner-inner {
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    > div.container-wrap {
+      flex: 1;
+
+      .contact-form-container {
+        margin: 0;
+      }
+
+      .row {
+        margin: 0;
+        width: 100%;
+      }
+
+      .contact-column {
+        margin: 0;
+        width: auto;
+      }
+
+    }
+
+    .contact-form {
+      max-width: 520px;
+      margin: 0;
+    }
+
+    #contactFormWrapper {
+      margin: 0;
+      max-width: 520px;
+
+      .form-field {
+        &:first-child,
+        &:nth-child(2) {
+          margin: 0 0 20px 0;
+          width: 100%;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $lg) {
+    .features-block {
+      margin: 0 40px;
+    }
+    .features-container {
+      justify-content: space-between;
+      padding: 40px 0;
+    }
+    .feature {
+      margin-right: 0;
+    }
+
+    div[data-section-type="contact-template"] {
+      padding: 40px 0;
+      margin: 0 40px;
+
+      > .banner {
+        display: none;
+      }
+
+      .contact-form {
+        margin: 0 auto;
+      }
+
+      #contactFormWrapper {
+        p {
+          text-align: center;
+
+          input {
+            max-width: 344px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $med - 1) {
+    .features-block {
+      margin: 0 16px;
+    }
+    .features-container {
+      flex-direction: column;
+    }
+    .feature {
+      width: 100%;
+      max-width: 288px;
+      margin-bottom: 32px;
+
+      &:last-child {
+        margin-bottom: 16px;
+      }
+    }
+    div[data-section-type="contact-template"] {
+      margin: 0 16px;
     }
   }
 }
