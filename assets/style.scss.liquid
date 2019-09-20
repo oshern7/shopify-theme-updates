@@ -17400,3 +17400,297 @@ About Us
     }
   }
 }
+
+.template-page-events {
+  .events-template {
+    padding: 40px 0 120px;
+    max-width: 1148px;
+    margin: 0 auto;
+    border-bottom: 1px solid #004e5980;
+
+    .event-block-popup {
+      display: none;
+    }
+  }
+
+  .event-date {
+    font-family: Trade-Gothic;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .event-title {
+    font-family: Trade-Gothic-bold-2;
+    font-size: 32px;
+    line-height: 45px;
+    text-transform: uppercase;
+  }
+
+  .event-link {
+    font-family: Trade-Gothic-bold-2;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 24px;
+    display: block;
+
+    .icon-arrow-right {
+      margin-top: -8px;
+      margin-left: 10px;
+
+      &::before {
+        content: '\e905';
+        font-size: 6px;
+      }
+    }
+  }
+
+  .event-block {
+    display: flex;
+    align-items: center;
+    height: 533px;
+
+    .column {
+      flex: 1;
+      width: 50%;
+    }
+
+    .image {
+      text-align: right;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .content {
+      padding-left: 140px;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+
+      .content {
+        text-align: right;
+        padding-right: 140px;
+        padding-left: 0;
+      }
+
+      .image {
+        text-align: left;
+      }
+    }
+  }
+
+  @media screen and (max-width: $xl) {
+    .events-template {
+      max-width: 980px;
+    }
+
+    .event-block {
+      height: 481px;
+
+      .content {
+        padding-left: 80px;
+      }
+
+      &:nth-child(2n) {
+        .content {
+          padding-right: 80px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $lg) {
+    .events-template {
+      padding:  0 0 96px;
+      max-width: 685px;
+    }
+
+    .event-block {
+      height: 366px;
+
+      .content {
+        padding-left: 48px;
+
+        .event {
+          font-size: 28px;
+        }
+      }
+
+      &:nth-child(2n) {
+        .content {
+          padding-right: 48px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $med - 1) {
+    .events-template {
+      padding:  24px 16px 0;
+      max-width: 359px;
+    }
+
+    .event-block {
+      flex-direction: column;
+      margin-bottom: 80px;
+      padding: 0 24px;
+      height: auto;
+
+      .column {
+        width: 100%;
+      }
+
+      .image {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .content {
+        text-align: center;
+        padding: 0;
+
+        .event {
+          font-size: 24px;
+        }
+      }
+
+      &:nth-child(2n) {
+        flex-direction: column;
+
+        .content {
+          padding: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.event-popup-blocker {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.2);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+
+  .event-block-popup {
+    display: flex !important;
+  }
+
+  @media screen and (max-width: $med - 1) {
+    padding: 0;
+  }
+}
+
+.event-block-popup {
+  background-color: $c-background;
+  align-items: center;
+  max-width: 1148px;
+  height: 100%;
+  max-height: 860px;
+  margin: 24px 0;
+  position: relative;
+
+  .close-modal {
+    padding: 16px;
+  }
+
+  .slider {
+    width: 55%;
+    height: 100%;
+    flex: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slick-slide > div {
+      height: 100%;
+    }
+
+    .slick-arrow::after {
+      color: white;
+    }
+  }
+
+  .event-info {
+    flex: 1;
+    padding: 0 48px;
+    text-align: left;
+
+    .event-title {
+      margin-bottom: 32px;
+    }
+    .event-content {
+      margin-bottom: 40px;
+    }
+    .event-location-label {
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .event-location {
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+    .event-price-link {
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+
+      .event-price {
+        font-family: Trade-Gothic-bold-2;
+        font-size: 32px;
+      }
+      .event-link {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  @media screen and (max-width: $xl - 1) {
+    max-height: 503px;
+    max-width: 735px;
+
+    .event-info {
+      overflow: auto;
+      height: 100%;
+      padding: 72px 24px 24px;
+
+      .event-title,
+      .event-price {
+        font-size: 28px;
+      }
+    }
+  }
+
+  @media screen and (max-width: $med - 1) {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    flex-direction: column;
+    overflow: auto;
+
+    .slider {
+      width: 100%;
+      height: auto;
+    }
+
+    .event-info {
+      flex: none;
+      padding: 24px;
+      height: auto;
+    }
+
+    .close-modal {
+      position: fixed;
+    }
+  }
+}

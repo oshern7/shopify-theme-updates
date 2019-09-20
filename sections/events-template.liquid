@@ -1,0 +1,161 @@
+<div class="events-template" data-section-type="events-template">
+  {% for block in section.blocks %}
+    <div class="event-block" {{ block.shopify_attributes }}>
+      <div class="image column">
+        {% include 'theme-rias' image: block.settings.image %}
+        {% include 'image', image: block.settings.image %}
+      </div>
+      <div class="content column"{% if block.settings.color %} style="color: {{ block.settings.color }}"{% endif %}>
+        <div class="event-date">{{ block.settings.date }}</div>
+        <div class="event-title">{{ block.settings.text }}</div>
+        {% if block.settings.link %}
+          <a class="event-link" href="{{ block.settings.link }}">
+            {{ block.settings.link_text }}<span class="icon-arrow-right"></span>
+          </a>
+        {% endif %}
+      </div>
+      <div class="event-block-popup">
+        <div class="slider">
+          {% if block.settings.modal_image1 %}
+            {% include 'theme-rias' image: block.settings.modal_image1 %}
+            {% include 'image', image: block.settings.modal_image1 %}
+          {% endif %}
+          {% if block.settings.modal_image2 %}
+            {% include 'theme-rias' image: block.settings.modal_image2 %}
+            {% include 'image', image: block.settings.modal_image2 %}
+          {% endif %}
+          {% if block.settings.modal_image3 %}
+            {% include 'theme-rias' image: block.settings.modal_image3 %}
+            {% include 'image', image: block.settings.modal_image3 %}
+          {% endif %}
+          {% if block.settings.modal_image4 %}
+            {% include 'theme-rias' image: block.settings.modal_image4 %}
+            {% include 'image', image: block.settings.modal_image4 %}
+          {% endif %}
+        </div>
+        <div class="event-info">
+          <div class="event-date">{{ block.settings.date }}</div>
+          <div class="event-title">{{ block.settings.text }}</div>
+          <div class="event-content">{{ block.settings.content }}</div>
+          <div class="event-location-label">Location:</div>
+          <div class="event-location">{{ block.settings.location }}</div>
+          <div class="event-price-link">
+            <div class="event-price">{{ block.settings.price }}</div>
+            <a class="event-link" href="{{ block.settings.modal_link }}">
+              {{ block.settings.modal_link_text }}<span class="icon-arrow-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script type="text/javascript">
+$('.events-template .event-block').on('click', function() {
+  var $el = $(this).find('.event-block-popup').clone();
+  $el.modal({
+    blockerClass: 'event-popup-blocker',
+    closeClass: 'icon-close'
+  });
+  $el.on($.modal.OPEN, function() {
+    $el.find('.slider').slick({ dots: true });
+  });
+  $el.on($.modal.AFTER_CLOSE, function() {
+    $el.remove();
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Events page",
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "header",
+          "content": "Modal"
+        },
+        {
+          "type": "image_picker",
+          "id": "modal_image1",
+          "label": "Slider Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "modal_image2",
+          "label": "Slider Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "modal_image3",
+          "label": "Slider Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "modal_image4",
+          "label": "Slider Image 4"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "modal_link_text",
+          "label": "Modal Link Text"
+        },
+        {
+          "type": "url",
+          "id": "modal_link",
+          "label": "Modal Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

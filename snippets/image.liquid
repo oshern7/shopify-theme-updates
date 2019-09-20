@@ -1,0 +1,7 @@
+{% assign image_widths = '295,394,590,700,800,1000,1200' %}
+<img class="lazyload fade-in"
+     data-src="{{ image_url_pattern }}"
+     data-widths="[{{ image_widths }}]"
+     data-aspectratio="{{ image.aspect_ratio }}"
+     data-sizes="auto"
+     alt="{{ image.alt }}">
