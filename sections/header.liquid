@@ -64,7 +64,7 @@
 				<h1 class="visible-nav-link nav-item main-logo {% unless logo or logo_other %}main-logo--text-only{% endunless %}" itemscope itemtype="http://schema.org/Organization">
 					{%- if logo or logo_other -%}
 						<a tabindex= "1" href="/" class="main-logo__image" data-width="{{ section.settings.logo_max_width }}">
-							{%- if template == 'page.about' -%}
+							{%- if template == 'page.about' or template == 'page.gallery' -%}
 								{% comment %} Show home logo first if home page {% endcomment %}
 
                 {%- if logo_other -%}

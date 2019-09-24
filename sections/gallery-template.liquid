@@ -1,0 +1,48 @@
+
+{% comment %} Section {% endcomment %}
+<section class="gallery-template" id="section-{{ section.id }}" data-section-type="gallery-template">
+  <div id="feed-{{ section.id }}"></div>
+  <button id="instagram-load-more" class="button">Load More</button>
+</section>
+
+{% if section.settings.instaToken %}
+<script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'user',
+        userId: '7424075916',
+        target: 'feed-{{ section.id }}',
+        resolution: 'standard_resolution',
+        accessToken: '{{ section.settings.instaToken }}',
+        after: function() {
+          if (!feed.hasNext()) {
+            $('#instagram-load-more').hide();
+          }
+        }
+    });
+
+    $('#instagram-load-more').on('click', function() {
+      feed.next();
+    });
+
+    feed.run();
+</script>
+{% endif %}
+
+{% comment %} Schema {% endcomment %}
+{% schema %}
+{
+  "name": "Gallery Template",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Configuration"
+    },
+    {
+      "type": "text",
+      "id": "instaToken",
+      "label": "Instagram access token",
+      "info": "[Get your access token](https://www.presidiocreative.com/instagram-privacy-policy)"
+    }
+  ]
+}
+{% endschema %}

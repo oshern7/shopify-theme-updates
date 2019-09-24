@@ -16926,9 +16926,14 @@ PDP
 About Us
 
 **********/
-.template-page-about {
+.template-page-about,
+.template-page-gallery {
   background-color: $c-primary;
   color: $c-background;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $c-background;
+  }
 
   .site-header {
     color: $c-header-bg-scroll;
@@ -17001,11 +17006,23 @@ About Us
     }
   }
 
+  .page-content {
+    blockquote {
+      border-left-color: $c-background;
+    }
+  }
+
   .site-footer {
     color: $c-background;
 
     .footer-blocks .footer-link a {
       color: $c-background;
+    }
+  }
+
+  .bg_footer_pattern {
+    .section-newsletter .container {
+      border-top-color: #dcc7b7a0;
     }
   }
 }
@@ -17041,6 +17058,17 @@ About Us
       margin-bottom: 80px;
       text-align: center;
       text-transform: uppercase;
+
+      @media screen and (max-width: $lg) {
+        font-size: 28px;
+        margin-top: -16px;
+        margin-bottom: 64px;
+      }
+      @media screen and (max-width: $med - 1) {
+        font-size: 24px;
+        margin-top: -58px;
+        margin-bottom: 32px;
+      }
     }
 
     h4 {
@@ -17063,12 +17091,28 @@ About Us
       height: auto;
       margin-top: 40px;
       margin-bottom: 40px;
+
+      @media screen and (max-width: $lg) {
+        margin-top: 34px;
+        margin-bottom: 10px;
+      }
+      @media screen and (max-width: $med - 1) {
+        margin-top: 20px;
+        margin-bottom: 2px;
+      }
     }
 
     blockquote {
-      padding-left: 24px;
-      border-left: 1px solid $c-background;
+      padding-left: 20px;
+      border-left: 1px solid $c-primary;
       margin: 0 10px 70px 40px;
+
+      @media screen and (max-width: $lg) {
+        margin: 2px 0 52px 40px;
+      }
+      @media screen and (max-width: $med - 1) {
+        margin: 32px 0 32px 16px;
+      }
     }
   }
 }
@@ -17090,7 +17134,6 @@ About Us
   width: 100%;
   margin: 0 auto;
   padding: 0 80px 120px;
-  border-bottom: 1px solid #004e5980;
 
   h4 {
     font-family: "rama-slab-e";
@@ -17215,11 +17258,29 @@ About Us
 }
 
 .bg_footer_pattern {
-  .section-newsletter .container.signUp {
-    width: 308px;
+  .section-newsletter {
+    margin: 0;
 
-    .signUp-form {
-      width: 261px;
+    .container {
+      padding: 50px 0;
+      border-top: 1px solid #004e59a0;
+      margin: 0 80px;
+      width: auto;
+
+      @media screen and (max-width: $lg) {
+        margin: 0 40px;
+      }
+      @media screen and (max-width: $med - 1) {
+        margin: 0 16px;
+      }
+
+      .row {
+        width: 308px;
+
+        .signUp-form {
+          width: 261px;
+        }
+      }
     }
   }
 }
@@ -17269,14 +17330,13 @@ About Us
     }
   }
   section.bordered {
-    border-bottom: 1px solid #004e5980;
+    border-bottom: 1px solid #004e59a0;
   }
 
   div[data-section-type="contact-template"] {
     padding: 80px 0;
     margin: 0 80px;
     display: flex;
-    border-bottom: 1px solid #004e5980;
 
     > .banner {
       flex: 1;
@@ -17406,7 +17466,6 @@ About Us
     padding: 40px 0 120px;
     max-width: 1148px;
     margin: 0 auto;
-    border-bottom: 1px solid #004e5980;
 
     .event-block-popup {
       display: none;
@@ -17691,6 +17750,35 @@ About Us
 
     .close-modal {
       position: fixed;
+    }
+  }
+}
+
+.gallery-template {
+  text-align: center;
+
+  #feed-gallery-template {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      box-sizing: border-box;
+      padding: 5px;
+      display: block;
+      width: 25%;
+
+      @media screen and (max-width: $lg) {
+        width: 33.33%
+      }
+      @media screen and (max-width: $med - 1) {
+        width: 50%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }
